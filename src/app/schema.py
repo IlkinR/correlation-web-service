@@ -57,7 +57,7 @@ class VectorFromRequest(BaseModel):
         return new_user_id
 
     @validator("datatype_x", "datatype_y")
-    def validate_datatype_x(cls, new_datatype):
+    def validate_datatype(cls, new_datatype):
         unique_datatypes_x = get_column_distincts(DataVector.datatype_x)
         unique_datatypes_y = get_column_distincts(DataVector.datatype_y)
         unique_datatypes = tuple(unique_datatypes_y) + tuple(unique_datatypes_x)
