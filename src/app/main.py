@@ -13,16 +13,6 @@ async def value_error_exception_handler(request: Request, exception: ValueError)
     return JSONResponse(status_code=400, content={"message": why_fail})
 
 
-@app.on_event("shutdown")
-def some():
-    pass
-
-
-@app.get("/test")
-def test():
-    return {"msg": "ok"}
-
-
 @app.post("/calculate")
 def compute_correlation(vectors_record: VectorRecord, filter_date: str):
     xs, ys = vectors_record.data.to_dicts()
